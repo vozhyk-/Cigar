@@ -205,6 +205,16 @@
         touches = e.touches;
     }
 
+    function autoSplit() {
+        log.info("Splitting!");
+        sendMouseMove();
+        sendUint8(17);
+    }
+    function registerAutoSplit() {
+        setInterval(autoSplit, 5000);
+    }
+    registerAutoSplit();
+
     function onTouchMove(e) {
         e.preventDefault();
         for (var i = 0; i < e.changedTouches.length; i++) {
