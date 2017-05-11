@@ -1086,12 +1086,6 @@
         xa = arg
     };
     wHandle.openSkinsList = function(arg) {
-        if ($('#inPageModalTitle').text() != "Skins") {
-            $.get('include/gallery.php').then(function(data) {
-                $('#inPageModalTitle').text("Skins");
-                $('#inPageModalBody').html(data);
-            });
-        }
     };
 
     if (null != wHandle.localStorage) {
@@ -1126,21 +1120,6 @@
     var data = {
         "action": "test"
     };
-    wjQuery.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "checkdir.php",
-        data: data,
-        success: function(data) {
-            response = JSON.parse(data["names"]);
-            for (var i = 0; i < response.length; i++) {
-                if (-1 == knownNameDict.indexOf(response[i])) {
-                    knownNameDict.push(response[i]);
-                }
-            }
-        }
-    });
-
     var delay = 500,
         oldX = -1,
         oldY = -1,
